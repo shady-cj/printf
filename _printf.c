@@ -4,6 +4,7 @@
 
 unsigned int _strlen(const char *str);
 int _print(const char *format, va_list args);
+int _print_dec(int num);
 
 /**
  * _printf - A function that mimics the traditional c printf
@@ -37,6 +38,7 @@ int _print(const char *format, va_list arg)
 {
 	char *s;
 	size_t i;
+	int dec;
 	int length;
 	unsigned int idx, len = _strlen(format);
 
@@ -73,6 +75,21 @@ int _print(const char *format, va_list arg)
 				_putchar(format[idx]);
 				length++;
 				break;
+			case 'd':
+			case 'i':
+				dec = va_arg(arg, int);
+				if (dec < 0)
+				{
+					_putchar('-');
+					dec = -1 * dec;
+					length++;
+					length += _print_dec(dec);
+				}
+				else
+				{
+					length += _print_dec(dec);
+				}
+				break;
 		}
 		idx++;
 	}
@@ -94,4 +111,30 @@ unsigned int _strlen(const char *str)
 		length++;
 	return (length);
 
+}
+
+/**
+ * _print_dec - Prints numbers.
+ * @num: The number to be printed
+ * Return: int
+ */
+int _print_dec(int num)
+{
+	int length, i, mod;
+
+	i = num / 10;
+	mod = num % 10;
+	length = 1;
+
+	if (i > 0)
+	{
+		length += _print_dec(i);
+	}
+	else
+	{
+		_putchar(mod + '0');
+		return (1);
+	}
+	_putchar(mod + '0');
+	return (length);
 }

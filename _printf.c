@@ -4,7 +4,7 @@
 
 unsigned int _strlen(const char *str);
 int _print(const char *format, va_list args);
-int _print_dec(int num);
+int _print_num(size_t num, size_t base);
 
 /**
  * _printf - A function that mimics the traditional c printf
@@ -83,13 +83,16 @@ int _print(const char *format, va_list arg)
 					_putchar('-');
 					dec = -1 * dec;
 					length++;
-					length += _print_dec(dec);
+					length += _print_num(dec, 10);
 				}
 				else
 				{
-					length += _print_dec(dec);
+					length += _print_num(dec, 10);
 				}
 				break;
+			case 'b':
+				dec = va_arg(arg, int);
+				length += _print_num(dec, 2);
 		}
 		idx++;
 	}
@@ -114,21 +117,22 @@ unsigned int _strlen(const char *str)
 }
 
 /**
- * _print_dec - Prints numbers.
+ * _print_num - prints numbers in their desired base.
  * @num: The number to be printed
+ * @base: The base to be printed
  * Return: int
  */
-int _print_dec(int num)
+int _print_num(size_t num, size_t base)
 {
 	int length, i, mod;
 
-	i = num / 10;
-	mod = num % 10;
+	i = num / base;
+	mod = num % base;
 	length = 1;
 
 	if (i > 0)
 	{
-		length += _print_dec(i);
+		length += _print_num(i, base);
 	}
 	else
 	{

@@ -41,7 +41,9 @@ int _print(const char *format, va_list arg)
 	int dec;
 	int length;
 	unsigned int idx, len = _strlen(format);
-
+	
+	if (format == NULL)
+		return (-1);
 	length = 0;
 	idx = 0;
 	while (idx < len)
@@ -93,6 +95,9 @@ int _print(const char *format, va_list arg)
 			case 'b':
 				dec = va_arg(arg, int);
 				length += _print_num(dec, 2);
+				break;
+			default:
+				return (0);
 		}
 		idx++;
 	}

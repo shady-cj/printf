@@ -57,7 +57,7 @@ int _print(const char *format, va_list arg)
 		switch (format[idx])
 		{
 			case 's':
-				s = va_arg(arg, char *); 
+				s = va_arg(arg, char *);
 				while (*s != '\0')
 				{
 					_putchar(*s++);
@@ -80,7 +80,7 @@ int _print(const char *format, va_list arg)
 }
 
 /**
- * _strcpy - A function that finds the length of a string
+ * _strlen - A function that finds the length of a string
  * @str: The string
  * Return: The length
  */

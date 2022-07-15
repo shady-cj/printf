@@ -41,8 +41,10 @@ int _print(const char *format, va_list arg)
 	int dec;
 	int length;
 	unsigned int idx, len = _strlen(format);
-	
-	if (format == NULL)
+
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 	length = 0;
 	idx = 0;

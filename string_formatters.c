@@ -8,10 +8,10 @@
  */
 int print_string(va_list args)
 {
-	char *s;
+	char *s = va_arg(args, char *);
 	int l;
 
-	s = va_arg(args, char *);
+
 
 	l = _putString(s == NULL ? "(null)" : s);
 	return (l);

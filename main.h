@@ -2,23 +2,24 @@
 #define __MAIN__H__
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
 
-int _putchar(char c);
-int _printf(const char *format, ...);
 /**
  * struct handle_print - An handler that handles the formatter
  * to use
  * @c: The format specifier
  * @f: The pointer to the helper functions
  */
+
 typedef struct handle_print
 {
 	char c;
 	int (*f) (va_list args);
 } formatter;
 
+int _putchar(char c);
+int _printf(const char *format, ...);
 int (*get_formatter(char c))(va_list args);
-
 /* String formatters */
 int print_per(va_list args);
 int print_string(va_list args);

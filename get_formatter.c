@@ -25,5 +25,5 @@ int (*get_formatter(char c))(va_list args)
 			return (arr[i].f);
 		}
 	}
-	return (arr[i].f);
+	return (NULL);
 }

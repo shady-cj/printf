@@ -1,6 +1,6 @@
 
 #include "main.h"
-#include <stdio.h>
+#include <stdlib.h>
 /**
  * print_string - a function that prints strings to stdout
  * @args: The arg from the variadic function
@@ -8,11 +8,10 @@
  */
 int print_string(va_list args)
 {
-	char *s;
+	char *s = NULL;
 	int l;
 
-	s = va_arg(args, char *);
-
+	s =  va_arg(args, char *);
 	l = _putString(s == NULL ? "(null)" : s);
 	return (l);
 }
@@ -24,9 +23,9 @@ int print_string(va_list args)
  */
 int print_char(va_list args)
 {
-	int c;
+	char c;
 	
-	c = va_arg(args, int);
+	c = (char) va_arg(args, int);
 	_putchar(c);
 	return (1);
 }
@@ -55,8 +54,9 @@ int _putString(char *s)
         
 	while (*s != '\0')
 	{
-                _putchar(*s++);
+                _putchar(*s);
         	length++;
+		s++;
         }
 	return (length);
 }

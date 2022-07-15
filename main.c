@@ -11,8 +11,8 @@ int main(void)
 {
     int len;
     int len2;
-    len = _printf("Let's try to printf a simple sentence. %s %c %c %s \n", "5655", 'A', 'b', "hjdjdj");
-    len2 = printf("Let's try to printf a simple sentence. %i \n", 5655);
+    len = _printf("Let's try to printf a simple sentence, %s %c \n", "John", 'A');
+    len2 = printf("Let's try to printf a simple sentence. %i %c \n", 5655, 'A');
     printf("%d %d\n", len, len2);
 }
 

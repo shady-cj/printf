@@ -62,6 +62,8 @@ int _print(const char *format, va_list arg)
 		{
 			case 's':
 				s = va_arg(arg, char *);
+				if (s == NULL)
+					s = "(null)";
 				while (*s != '\0')
 				{
 					_putchar(*s++);

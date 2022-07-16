@@ -14,7 +14,7 @@
 typedef struct handle_print
 {
 	char c;
-	int (*f) (va_list *args);
+	int (*f)(va_list *args);
 } formatter;
 
 /* Utils */
@@ -29,7 +29,6 @@ int print_char(va_list *args);
 
 
 /* Number function formatters */
-//int print_unsigned(va_list args);
 int print_int(va_list *args);
 int print_bin(va_list *args);
 int print_unsigned_int(va_list *args);
@@ -45,6 +44,20 @@ int print_base(size_t num, size_t base);
 int _putString(char *s);
 
 /* Helper function to print hex */
+
+/**
+ * struct hex - A structure that maps the int values to their hex values
+ * @num: The number
+ * @c: The equivalent character in hex
+ * @lower_c: The lowercase equivalent
+ */
+struct hex
+{
+	size_t num;
+	char c;
+	char lower_c;
+};
+
 int print_hex(size_t num, char type);
 
 #endif

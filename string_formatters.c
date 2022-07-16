@@ -8,8 +8,6 @@
  */
 int print_string(va_list *args)
 {
-	char *s = va_arg(args, char *);
-	int l;
 	char *s = NULL;
 	int l;
 
@@ -26,7 +24,7 @@ int print_string(va_list *args)
 int print_char(va_list *args)
 {
 	char c;
-	
+
 	c = (char) va_arg(*args, int);
 	_putchar(c);
 	return (1);

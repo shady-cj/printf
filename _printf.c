@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	length = 0;
 	idx = 0;
-	va_start(args, format);	
+	va_start(args, format);
 	while (idx < len)
 	{
 		while (format[idx] != '%' && idx < len)
@@ -30,11 +30,11 @@ int _printf(const char *format, ...)
 		}
 		idx++;
 		if (idx >= len)
-			break;	
+			break;
 		f = get_formatter(format[idx]);
-                if (f != NULL)
+		if (f != NULL)
 		{
-                        length += f(&args);
+			length += f(&args);
 		}
 		idx++;
 	}

@@ -21,17 +21,6 @@ int print_base(size_t num, size_t base)
 }
 
 /**
- * hex - A structure that maps the int values to their hex values
- * @num: The number
- * @c: The equivalent character in hex
- */
-struct hex
-{
-	size_t num;
-	char c;
-	char lower_c;
-};
-/**
  * print_hex - This helper function prints the hex equivalent
  * @num: The number to be printed
  * @type: The type to be printed

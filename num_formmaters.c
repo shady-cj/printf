@@ -27,9 +27,9 @@ int print_int(va_list *args)
 
 
 /**
- * print_unsigned - The function prints unsigned integers
+ * print_unsigned_int - The function prints unsigned integers
  * @args: The args
- * Retuen: The number of integers printed
+ * Return: The number of integers printed
  */
 int print_unsigned_int(va_list *args)
 {

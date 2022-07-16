@@ -39,12 +39,12 @@ unsigned int _strlen(const char *str)
 int _putString(char *s)
 {
 	int length = 0;
-        
+
 	while (*s != '\0')
 	{
-                _putchar(*s);
-        	length++;
+		_putchar(*s);
+		length++;
 		s++;
-        }
+	}
 	return (length);
 }

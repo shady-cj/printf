@@ -17,5 +17,6 @@ int main(void)
     _printf("%X\n", 774788429);
     printf("octal %o \n", 8000);
     _printf("%o testi\n", 8000);
-}
 
+    return (0);
+}

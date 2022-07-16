@@ -6,7 +6,7 @@
  * @c: The format specifiers to be used
  * Return: A pointer to the mapped helper function
  */
-int (*get_formatter(char c))(va_list *args)
+int (*get_formatter(char c))(va_list * args)
 {
 	int i, arr_len = 11;
 	formatter arr[] = {

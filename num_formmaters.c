@@ -6,11 +6,11 @@
  * @args: The args
  * Return: The number of int printed
  */
-int print_int(va_list args)
+int print_int(va_list *args)
 {
 	int dec, length = 0;
 
-	dec = va_arg(args, int);
+	dec = (int) va_arg(*args, int);
 	if (dec < 0)
 	{
 		_putchar('-');
@@ -31,38 +31,57 @@ int print_int(va_list args)
  * @args: The args
  * Retuen: The number of integers printed
  */
-//int print_unsigned(va_list args)
-//{
-//	unsigned int num;
-//	num = va_arg(args, unsigned int);
-
-//}
-
-
-/**
- * print_base - prints numbers in their desired base.
- * @num: The number to be printed
- * @base: The base to be printed
- * Return: int
- */
-int print_base(size_t num, size_t base)
+int print_unsigned_int(va_list *args)
 {
-	int length, i, mod;
+	unsigned int num;
+	int length;
 
-	i = num / base;
-	mod = num % base;
-	length = 1;
-
-	if (i > 0)
-	{
-		length += print_base(i, base);
-	}
-	else
-	{
-		_putchar(mod + '0');
-		return (1);
-	}
-	_putchar(mod + '0');
+	num = (unsigned int) va_arg(*args, int);
+	length = print_base(num, 10);
 	return (length);
 }
 
+/**
+ * print_bin - The helper function prints a binary
+ * @args: a pointer to the args
+ * Return: The number of printed characters
+ */
+int print_bin(va_list *args)
+{
+	unsigned int i;
+	int length = 0;
+
+	i = (unsigned int) va_arg(*args, int);
+	length += print_base(i, 2);
+	return (length);
+}
+
+/**
+ * print_x - Handles printing of hexadecimal int of lowercase
+ * @args: a pointer to the args of type va_list
+ * Return: The number of printer chars
+ */
+int print_x(va_list *args)
+{
+	unsigned int i;
+	int length;
+
+	i = (unsigned int) va_arg(*args, int);
+	length = print_hex(i, 'x');
+	return (length);
+}
+
+/**
+ * print_X - Handles printing of hexadecimal int of uppercase
+ * @args: a pointer to the args of type va_list
+ * Return: The number of printer chars
+ */
+int print_X(va_list *args)
+{
+	unsigned int i;
+	int length;
+
+	i = (unsigned int) va_arg(*args, int);
+	length = print_hex(i, 'X');
+	return (length);
+}

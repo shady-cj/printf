@@ -6,14 +6,19 @@
  * @c: The format specifiers to be used
  * Return: A pointer to the mapped helper function
  */
-int (*get_formatter(char c))(va_list args)
+int (*get_formatter(char c))(va_list *args)
 {
-	int i, arr_len = 6;
+	int i, arr_len = 11;
 	formatter arr[] = {
 		{'i', print_int},
 		{'d', print_int},
 		{'s', print_string},
 		{'c', print_char},
+		{'b', print_bin},
+		{'u', print_unsigned_int},
+		{'x', print_x},
+		{'X', print_X},
+		{'o', print_octal},
 		{'%', print_per},
 		{' ', NULL}
 	};
